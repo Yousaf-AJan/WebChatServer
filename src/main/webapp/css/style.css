@@ -66,8 +66,8 @@ body {
     height: 10vh;
     margin-top: 40px; /* Adjust this value to move the container down */
     position: absolute;
-    top: 63vh; /* Adjust this value to move the container down */
-    right: 18px;
+    top: 60vh; /* Adjust this value to move the container down */
+    right: 1.2%;
     width: 100%;
 }
 
@@ -82,10 +82,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 10vh;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     width: fit-content;
-    top:477px;
-    right:462px;
+    top:66.7%;
+    right:31%;
     margin-left: 2px;
     position: fixed;
 
@@ -139,7 +139,7 @@ body {
 
 .sidebarline {
     border-left: 3px solid #000000;
-    height: 750px;
+    height: 98%;
     position: absolute;
    top:1%;
     bottom:1%;
