@@ -18,11 +18,9 @@ public class ChatServlet extends HttpServlet {
     //static so this set is unique
     public static Set<String> rooms = new HashSet<>();
 
-
-
     /**
      * Method generates unique room codes
-     * **/
+     **/
     public String generatingRandomUpperAlphanumericString(int length) {
         String generatedString = RandomStringUtils.randomAlphanumeric(length).toUpperCase();
         // generating unique room code
@@ -35,12 +33,20 @@ public class ChatServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Add CORS headers
+        response.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+
         response.setContentType("text/plain");
 
-        // send the random code as the response's content
-        PrintWriter out = response.getWriter();
-        out.println(generatingRandomUpperAlphanumericString(5));
+        // generate a unique room ID
+        String roomID = generatingRandomUpperAlphanumericString(5);
 
+        // send the room ID as the response's content
+        PrintWriter out = response.getWriter();
+        out.println(roomID);
     }
 
     public void destroy() {
