@@ -27,15 +27,36 @@ body {
     height: 10vh;
     margin-top: 40px;
     width: fit-content;
-    top:40px;
+    top:50px;
     margin-left: 2px;
     position: fixed;
     border-radius:50%;
 }
 #room-btn{
     border-radius:50%;
+    padding:0;
+    height:25px;
+    width:25px;
 }
 
+#refresh-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    margin-top: 40px;
+    width: fit-content;
+    top:15px;
+    margin-left: 2px;
+    position: fixed;
+    /*border-radius:50%;*/
+}
+#refresh-btn{
+   /* border-radius:50%;*/
+    padding:0;
+    height:25px;
+    width:25px;
+}
 #log-container {
     display: flex;
     justify-content: center;
@@ -55,7 +76,7 @@ body {
     padding: 1px;
     border-width: 2px;
     border-color: black;
-    background-color: #21a5d5;
+    background-color: #cae2ee;
 
 }
 
@@ -67,7 +88,7 @@ body {
     margin-top: 40px; /* Adjust this value to move the container down */
     position: absolute;
     top: 60vh; /* Adjust this value to move the container down */
-    right: 1.2%;
+    right: 1.1%;
     width: 100%;
 }
 
@@ -76,6 +97,7 @@ body {
     border-width: 2px;
     border-color: black;
     margin-top: 20px;
+    background-color: #cae2ee;
 }
 #send-button{
     display: flex;
@@ -84,16 +106,33 @@ body {
     height: 10vh;
     /*margin-top: 40px;*/
     width: fit-content;
-    top:66.7%;
-    right:31%;
+    top:13%;
+    right:30.1%;
     margin-left: 2px;
-    position: fixed;
+    position: absolute;
 
 }
 #send-btn{
-    border-radius:50%;
+    background-color: #cae2ee;
 }
+#img-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    /*margin-top: 40px;*/
+    width: fit-content;
+    top:13%;
+    right:26.1%;
+    margin-left: 2px;
+    position: absolute;
 
+}
+#img-btn{
+    background-color: #cae2ee;
+    border-radius: 50%;
+    width:27px;
+}
 #bottom-bar {
     width: 100%;
     flex: 0 0 10vh;
@@ -180,21 +219,48 @@ body {
     visibility: visible;
 }
 
+/*About page*/
+#Name {
+    margin-top: 5%;
+    text-align: center;
+}
 
+#Name h1, #Name h2 {
+    display: block;
+    margin: 0;
+}
 
+#Name h2 {
+    margin-top: 10px;
+}
+#git1{
+    padding: 1px;
+}
+#git2{
+    padding: 1px;
+}
+#git3{
+    padding: 1px;
+}
 
-/*.sidebar .closebutt {
-    position: absolute;
-    top: 50px;
-    right: 5px;
-    font-size: 36px;
+#member1{
+    display: inline-block;
+    border: 2px solid black;
+
+}
+
+#member2{
+    display: inline-block;
+    margin-right: 50px;
     margin-left: 50px;
-    padding: 1px 5px;
+    border: 2px solid black;
 }
 
-.closebutt:hover {
-    background-color: #444;
+#member3{
+    display: inline-block;
+    border: 2px solid black;
 }
 
- */
+
+
 

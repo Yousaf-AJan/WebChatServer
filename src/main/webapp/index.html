@@ -30,12 +30,18 @@
 
 <!-- Add your site or application content here -->
 <div id="mySidebar" class="sidebar">
-
+  <!--<a href="about.html" id="about-link2" >About</a>-->
   <h1>ChatRoom List</h1>
   <div id="rooms"></div>
+  <div id="refresh-container">
+    <div class="tooltip">
+      <button id = "refresh-btn" onclick = refresh()><image src="img/Refresh.png" width = "20" length = "20" alt="Send"> </image></button>
+      <span class="tooltiptext">Refresh</span>
+    </div>
+  </div>
   <div id="btn-container">
     <div class="tooltip">
-      <button id = "room-btn" onclick = newRoom()>+</button>
+      <button id = "room-btn" onclick = newRoom()><strong>+</strong></button>
       <span class="tooltiptext">Create Room</span>
     </div>
   </div>
@@ -46,7 +52,9 @@
 <div id="main">
   <!-- <button class="openbutt" onclick="openNav()">☰</button> -->
   <div id="dash-bar">
+
     <h1>ChatServer</h1>
+    <a href="about.html" id="about-link2" >About</a>
   </div>
 </div>
 
@@ -57,7 +65,10 @@
 <div id="input-container">
   <input title="Chat Input" id="input" type="text"/>
   <div id="send-button">
-    <button id = "send-btn" onclick = send()> <image src="img/SendPlane.png" width = "17" length = "17" alt="Send"> </image></button>
+    <button id = "send-btn" onclick = send()><image src="img/SendPlane.png" width = "14" length = "14" alt="Send"> </image></button>
+  </div>
+  <div id="img-button">
+    <button id = "img-btn" onclick = send()><image src="img/sendimg.png" width = "14" length = "14" alt="SendImg"> </image></button>
   </div>
 </div>
 
