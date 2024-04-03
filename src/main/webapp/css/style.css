@@ -9,7 +9,7 @@ button {
     width: 100%;
     height: 40px;
     background-color: rgb(4, 127, 190);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
@@ -91,18 +91,20 @@ button {
     margin-top: 40px; /* Adjust this value to move the container down */
     position: absolute;
     top: 60vh; /* Adjust this value to move the container down */
-    right: 1.1%;
+    right:0.3%;
     width: 100%;
 }
-
+input:focus {
+    outline: none;
+}
 #input {
-    width: 31.7%;
+    width: 33.2%;
     border-width: 2px;
     border-color: black;
     margin-top: 20px;
     background-color: #cae2ee;
     border-left: none;
-    right: 10%;
+    right: 1%;
 }
 #send-button{
     display: flex;
@@ -111,8 +113,8 @@ button {
     height: 10vh;
     /*margin-top: 40px;*/
     width: fit-content;
-    top:13%;
-    right:30.1%;
+    top:66.7%;
+    right:31.2%;
     margin-left: 2px;
     position: absolute;
 
@@ -127,7 +129,7 @@ button {
     height: 10vh;
     width: fit-content;
     top:13%;
-    left:32.15%;
+    left:31.3%;
     margin-left: 2px;
     position: absolute;
     border-color: black;
@@ -236,10 +238,10 @@ button {
 
 /*About page*/
 #about-butt{
-    top: 0  ;
-
+    top: 5%;
+    position:fixed;
     padding: 0;
-    right: 100%;
+    left:0.2%;
 }
 
 #Name {

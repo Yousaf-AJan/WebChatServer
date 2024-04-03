@@ -52,8 +52,10 @@
   <!-- <button class="openbutt" onclick="openNav()">☰</button> -->
   <div id="dash-bar">
     <h1>ChatServer</h1>
-    <a href="about.html" ><button id = "about-butt" > <image src="img/OTUAbout.png" width = "15" length = "15" alt="About"> </image> </button></a>
-
+    <div class="tooltip">
+    <a href="about.html" ><button id = "about-butt" > <image src="img/OTUAbout.png" width = "20" length = "20" alt="About"> </image> </button></a>
+      <span class="tooltiptext">About Page</span>
+    </div>
     <div class="topbarline"></div>
   </div>
 </div>
@@ -61,12 +63,12 @@
 <div id="log-container">
   <textarea title="Chat Log" id="log" readonly></textarea>
 </div>
-
+<div id="send-button">
+  <button id = "send-btn" onclick = send()><image src="img/SendPlane.png" width = "14" length = "14" alt="Send"> </image></button>
+</div>
 <div id="input-container">
   <input title="Chat Input" id="input" type="text"/>
-  <div id="send-button">
-    <button id = "send-btn" onclick = send()><image src="img/SendPlane.png" width = "14" length = "14" alt="Send"> </image></button>
-  </div>
+
   <div id="img-button">
     <button id = "img-btn" onclick = send()><image src="img/sendimg.png" width = "14" length = "14" alt="SendImg"> </image></button>
   </div>
