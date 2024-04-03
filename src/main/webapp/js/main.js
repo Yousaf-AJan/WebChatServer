@@ -1,4 +1,3 @@
-//Functionality Part of Js
 let ws;
 
 function newRoom(){
@@ -30,13 +29,15 @@ function enterRoom(code){
         document.getElementById("log").value += "[" + timestamp() + "] " + message.message + "\n";
     }
 
+    //Use event Listener to check if "Enter" is pressed and then sendMessage
     document.getElementById("input").addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
-            let request = {"type":"chat", "msg":event.target.value};
-            ws.send(JSON.stringify(request));
-            event.target.value = "";
+            sendMessage();
         }
-
+    });
+    //Use event Listener to check if button is pressed and then sendMessage
+    document.getElementById("send-btn").addEventListener("click", function () {
+        sendMessage();
     });
 
     // Add a link to the new room in the sidebar
@@ -51,17 +52,20 @@ function enterRoom(code){
     document.getElementById("rooms").appendChild(roomLink);
 
 }
+
+//Function to handle the sending of the message to the ChatLog
+function sendMessage() {
+    let messageInput = document.getElementById("input");
+    let message = messageInput.value.trim();
+    if (message !== "") {
+        let request = {"type":"chat", "msg":message};
+        ws.send(JSON.stringify(request));
+        messageInput.value = "";
+    }
+}
+
 function timestamp() {
     let d = new Date(), minutes = d.getMinutes();
     if (minutes < 10) minutes = '0' + minutes;
     return d.getHours() + ':' + minutes;
-}
-
-
-//UI Part Of JS Below
-
-function send() {
-    // var inputvalue=document.getElementById('input').value;
-    //document.getElementById('log').value=inputvalue;
-    // ws.send(JSON.stringify(request));
 }

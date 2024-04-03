@@ -35,9 +35,7 @@ public class ChatServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Add CORS headers
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
-        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST");
 
         response.setContentType("text/plain");
 
