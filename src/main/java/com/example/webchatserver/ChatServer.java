@@ -15,7 +15,6 @@ import java.util.Map;
 @ServerEndpoint(value="/ws/{roomID}")
 public class ChatServer {
 
-    // contains a static List of ChatRoom used to control the existing rooms and their users
     private Map<String, String> usernames = new HashMap<>();
     private static Map<String, String> roomList = new HashMap<>();
     private Map<String, ChatRoom> chatRooms = new HashMap<>();
@@ -40,11 +39,12 @@ public class ChatServer {
         if (usernames.containsKey(userId)) {
             String username = usernames.get(userId);
             usernames.remove(userId);
+            String roomId = roomList.get(userId);
             ChatRoom chatRoom = chatRooms.get(roomList.get(userId));
             chatRoom.removeUser(userId);
             //broadcast this person left the server
             for (Session peer : session.getOpenSessions()) {
-                if (chatRoom.inRoom(peer.getId())) {
+                if ((!peer.getId().equals(userId)) && (roomList.get(peer.getId()).equals(roomId))){
                     peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(Server): " + username + " left the chat room.\"}");
                 }
             }
@@ -64,9 +64,8 @@ public class ChatServer {
             String username = usernames.get(userID);
             System.out.println(username);
             String roomId = roomList.get(userID);
-            ChatRoom chatRoom = chatRooms.get(roomId);
             for (Session peer : session.getOpenSessions()) {
-                if (chatRoom.inRoom(peer.getId())) {
+                if(roomList.get(peer.getId()).equals(roomId)){
                     peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(" + username + "): " + message + "\"}");
                 }
             }
@@ -77,7 +76,6 @@ public class ChatServer {
             String username = usernames.get(userID);
             System.out.println(username);
             String roomId = roomList.get(userID);
-            ChatRoom chatRoom = chatRooms.get(roomId);
             for (Session peer : session.getOpenSessions()) {
                 if ((!peer.getId().equals(userID)) && (roomList.get(peer.getId()).equals(roomId))) {
                     peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(Server): " + message + " joined the chat room.\"}");
@@ -85,8 +83,5 @@ public class ChatServer {
             }
         }
 
-
     }
-
-
 }

@@ -40,7 +40,7 @@
   </div>
   <div id="btn-container">
     <div class="tooltip">
-      <button id = "room-btn" onclick = newRoom()><strong>+</strong></button>
+      <button id = "room-btn" onclick = fetchRooms()><strong>+</strong></button>
       <span class="tooltiptext">Create Room</span>
     </div>
   </div>
@@ -49,7 +49,6 @@
 
 
 <div id="main">
-  <!-- <button class="openbutt" onclick="openNav()">☰</button> -->
   <div id="dash-bar">
     <h1>ChatServer</h1>
     <div class="tooltip">
@@ -64,7 +63,7 @@
   <textarea title="Chat Log" id="log" readonly></textarea>
 </div>
 <div id="send-button">
-  <button id = "send-btn" onclick = send()><image src="img/SendPlane.png" width = "14" length = "14" alt="Send"> </image></button>
+  <button id = "send-btn" onclick = sendMessage()><image src="img/SendPlane.png" width = "14" length = "14" alt="Send"> </image></button>
 </div>
 <div id="input-container">
   <input title="Chat Input" id="input" type="text"/>
@@ -73,8 +72,6 @@
     <button id = "img-btn" onclick = send()><image src="img/sendimg.png" width = "14" length = "14" alt="SendImg"> </image></button>
   </div>
 </div>
-
-
 
 <!-- Create the Bottom Bar which Displays Course Info -->
 <div id="bottom-bar">

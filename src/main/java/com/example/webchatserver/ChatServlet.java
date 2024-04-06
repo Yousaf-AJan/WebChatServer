@@ -3,6 +3,7 @@ package com.example.webchatserver;
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
+import org.json.JSONArray;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -37,14 +38,23 @@ public class ChatServlet extends HttpServlet {
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST");
 
-        response.setContentType("text/plain");
-
-        // generate a unique room ID
+        //Get the random roomID using the generatingRandomUpperAlphanumericString
         String roomID = generatingRandomUpperAlphanumericString(5);
+        //Add the roomID to the roomsHashSet
+        rooms.add(roomID);
 
-        // send the room ID as the response's content
+        //Make a jsonArray that will contain the roomIDs
+        JSONArray jsonArray = new JSONArray();
+        //Add all the roomIDs from the room HashSet to the JsonArray
+        for (String room : rooms) {
+            jsonArray.put(room);
+        }
+
+        // Send the JSON array as the response's content
+        //The Response contains the RoomCodes which all the clients can access
+        //and use to access all the different rooms
         PrintWriter out = response.getWriter();
-        out.println(roomID);
+        out.println("{\"rooms\": " + jsonArray.toString() + "}");
     }
 
     public void destroy() {

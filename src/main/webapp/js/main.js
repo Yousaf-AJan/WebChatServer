@@ -1,21 +1,22 @@
 let ws;
 
-function newRoom(){
-    // calling the ChatServlet to retrieve a new room ID
+//Function below gets all the roomCodes from the ChatServlet
+//which all the clients can use to join the different ChatRooms
+function fetchRooms(){
+    // calling the ChatServlet to retrieve all room IDs
     let callURL= "http://localhost:8080/WSChatServer-1.0-SNAPSHOT/chat-servlet";
     fetch(callURL, {
         method: 'GET',
         headers: {
-            'Accept': 'text/plain',
+            'Accept': 'application/json',
         },
     })
-        .then(response => response.text())
-        .then(response => enterRoom(response)); // enter the room with the code
+        .then(response => response.json())
+        .then(response => updateRoomList(response.rooms))
+        .catch(error => console.error('Error fetching rooms:', error));
 }
 
 function enterRoom(code){
-    // refresh the list of rooms
-
     // create the web socket
     ws = new WebSocket("ws://localhost:8080/WSChatServer-1.0-SNAPSHOT/ws/"+code);
     console.log(code);
@@ -23,38 +24,47 @@ function enterRoom(code){
     // parse messages received from the server and update the UI accordingly
     ws.onmessage = function (event) {
         console.log(event.data);
-        // parsing the server's message as json
         let message = JSON.parse(event.data);
-        // handle message
-        document.getElementById("log").value += "[" + timestamp() + "] " + message.message + "\n";
+            console.log(message.message);
+            document.getElementById("log").value += "[" + timestamp() + "] " + message.message + "\n";
     }
 
-    //Use event Listener to check if "Enter" is pressed and then sendMessage
+    // Use event Listener to check if button is pressed and then sendMessage
+    document.getElementById("send-btn").addEventListener("click", sendMessage);
+
+    // Use event Listener to check if "Enter" is pressed and then sendMessage
     document.getElementById("input").addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
             sendMessage();
         }
     });
-    //Use event Listener to check if button is pressed and then sendMessage
-    document.getElementById("send-btn").addEventListener("click", function () {
-        sendMessage();
-    });
-
-    // Add a link to the new room in the sidebar
-    let roomLink = document.createElement("a");
-    roomLink.href = "javascript:void(0)";
-    roomLink.textContent = "Room " + code;
-    roomLink.onclick = function() {
-        // Handle clicking on the room link
-        ws = new WebSocket("ws://localhost:8080/WSChatServer-1.0-SNAPSHOT/ws/"+code);
-        // You may want to add more functionality here
-    };
-    document.getElementById("rooms").appendChild(roomLink);
 
 }
 
-//Function to handle the sending of the message to the ChatLog
-function sendMessage() {
+//This function updates the list each time a new room is created by a client
+function updateRoomList(rooms){
+    let roomsContainer = document.getElementById("rooms");
+    roomsContainer.innerHTML = ""; // Clear the current room list
+    rooms.forEach(function(roomID) {
+        let roomLink = createRoomLink(roomID);
+        roomsContainer.appendChild(roomLink);
+    });
+}
+
+//This function creates the roomLink using the roomID
+function createRoomLink(roomID) {
+    let link = document.createElement("a");
+    link.href = "ws://localhost:8080/WSChatServer-1.0-SNAPSHOT/ws/"+roomID;
+    link.textContent = "Room " + roomID;
+    link.onclick = function() {
+        enterRoom(roomID);
+        return false;
+    };
+    return link;
+}
+
+//This function handles the message.
+function sendMessage(event) {
     let messageInput = document.getElementById("input");
     let message = messageInput.value.trim();
     if (message !== "") {
@@ -64,8 +74,10 @@ function sendMessage() {
     }
 }
 
+//Function that makes the time appear in the message
 function timestamp() {
     let d = new Date(), minutes = d.getMinutes();
     if (minutes < 10) minutes = '0' + minutes;
     return d.getHours() + ':' + minutes;
 }
+
