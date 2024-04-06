@@ -16,24 +16,32 @@ function fetchRooms(createRoom){
     .catch(error => console.error('Error fetching rooms:', error));
 }
 
-function enterRoom(code){
+//This function updates the text to show the current room
+function updateCurrentRoom(roomID) {
+    document.getElementById("CurrentRoom").textContent = "You are currently in ChatRoom: " + roomID;
+}
+
+function enterRoom(code) {
     // create the web socket
-    ws = new WebSocket("ws://localhost:8080/WSChatServer-1.0-SNAPSHOT/ws/"+code);
+    ws = new WebSocket("ws://localhost:8080/WSChatServer-1.0-SNAPSHOT/ws/" + code);
     console.log(code);
 
     // parse messages received from the server and update the UI accordingly
-    ws.onmessage = function (event) {
+    ws.onmessage = function(event) {
         console.log(event.data);
         let message = JSON.parse(event.data);
-            console.log(message.message);
-            document.getElementById("log").value += "[" + timestamp() + "] " + message.message + "\n";
+        console.log(message.message);
+        document.getElementById("log").value += "[" + timestamp() + "] " + message.message + "\n";
     }
+
+    // Update the current room text
+    updateCurrentRoom(code);
 
     // Use event Listener to check if button is pressed and then sendMessage
     document.getElementById("send-btn").addEventListener("click", sendMessage);
 
     // Use event Listener to check if "Enter" is pressed and then sendMessage
-    document.getElementById("input").addEventListener("keyup", function (event) {
+    document.getElementById("input").addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
             sendMessage();
         }

@@ -107,33 +107,23 @@ input:focus {
     right: 1%;
 }
 #send-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 10%;
-    /*margin-top: 40px;*/
-    width: fit-content;
-    top:66.7%;
+    top:70.2%;
     right:31.2%;
     margin-left: 2px;
-    position: absolute;
-
+    position: fixed;
+    border-color: black;
 }
 #send-btn{
     background-color: #cae2ee;
 }
 #img-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: fit-content;
-    top:14%;
-    left:31.3%;
+    height: 10%;
+    top:70.2%;
+    left:31%;
     margin-left: 2px;
-    position: absolute;
+    position: fixed;
     border-color: black;
-
 }
 #img-btn{
     background-color: #cae2ee;
@@ -142,6 +132,18 @@ input:focus {
     height:31.25%;
 
 }
+
+file:focus {
+    outline: none;
+}
+#fileInput {
+    background-color: #cae2ee;
+    border-right: none;
+    width:100%;
+    height:31.25%;
+    display: none;
+}
+
 #bottom-bar {
     width: 100%;
     flex: 0 0 10vh;
@@ -184,30 +186,19 @@ input:focus {
     color: #ffffff;
 }
 
-
-.sidebarline {
-    border-left: 3px solid #000000;
-    height: 98%;
-    position: absolute;
-   top:1%;
-    bottom:1%;
-    left: 16%;
-}
-
 .topbarline {
     border-left: 3px solid #000000;
     height: 100%;
-    position: absolute;
-    top:1%;
+    position: fixed;
+    top:0;
     bottom:1%;
-    left: 1.85%;
+    left: 1.9%;
 }
 
 /* Chat room button */
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
@@ -237,9 +228,22 @@ input:focus {
     visibility: visible;
 }
 
+/*Current chat room*/
+#CurrentRoom {
+    margin-top: 6.3%;
+    margin-right: 6%;
+    text-align: center;
+}
+
+#title{
+    position:fixed;
+    right:45%;
+    top:2%;
+}
+
 /*About page*/
 #about-butt{
-    top: 5%;
+    top: 3%;
     position:fixed;
     padding: 0;
     left:0.2%;

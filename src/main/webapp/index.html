@@ -50,9 +50,9 @@
 
 <div id="main">
   <div id="dash-bar">
-    <h1>ChatServer</h1>
+    <h1 id="title">Chat Server</h1>
     <div class="tooltip">
-    <a href="about.html" ><button id = "about-butt" > <image src="img/OTUAbout.png" width = "20" length = "20" alt="About"> </image> </button></a>
+      <a href="about.html" ><button id = "about-butt" > <image src="img/OTUAbout.png" width = "20" length = "20" alt="About"> </image> </button></a>
       <span class="tooltiptext">About Page</span>
     </div>
     <div class="topbarline"></div>
@@ -66,11 +66,21 @@
   <button id = "send-btn" onclick = sendMessage()><image src="img/SendPlane.png" width = "14" length = "14" alt="Send"> </image></button>
 </div>
 <div id="input-container">
-  <input title="Chat Input" id="input" type="text"/>
+  <input title="Chat Input" id="input" type="text" placeholder="Type Something Here..."/>
 
+  <!--<div id="img-button">
+    <button id = "img-btn" onclick = sendImg()><input title="file Input" id="file" type="file" accept="image/*"/><image src="img/sendimg.png" width = "14" length = "14" alt="SendImg"> </image></button>
+  </div>-->
   <div id="img-button">
-    <button id = "img-btn" onclick = send()><image src="img/sendimg.png" width = "14" length = "14" alt="SendImg"> </image></button>
+    <label for="fileInput">
+      <img src="img/sendimg.png" width="20" length="20" alt="SendImg">
+    </label>
+    <input id="fileInput" type="file" accept="image/*"  onchange="sendImg(this)">
   </div>
+</div>
+
+<div id="CurrentRoom">
+  <h2>You are currently in ChatRoom:</h2>
 </div>
 
 <!-- Create the Bottom Bar which Displays Course Info -->
