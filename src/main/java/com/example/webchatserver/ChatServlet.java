@@ -33,29 +33,33 @@ public class ChatServlet extends HttpServlet {
         return generatedString;
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // Add CORS headers
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
-        response.setHeader("Access-Control-Allow-Methods", "GET, POST");
+public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Add CORS headers
+    response.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
+    response.setHeader("Access-Control-Allow-Methods", "GET, POST");
 
+    boolean createNewRoom = Boolean.parseBoolean(request.getParameter("createRoom"));
+
+    if (createNewRoom) {
         //Get the random roomID using the generatingRandomUpperAlphanumericString
         String roomID = generatingRandomUpperAlphanumericString(5);
         //Add the roomID to the roomsHashSet
         rooms.add(roomID);
-
-        //Make a jsonArray that will contain the roomIDs
-        JSONArray jsonArray = new JSONArray();
-        //Add all the roomIDs from the room HashSet to the JsonArray
-        for (String room : rooms) {
-            jsonArray.put(room);
-        }
-
-        // Send the JSON array as the response's content
-        //The Response contains the RoomCodes which all the clients can access
-        //and use to access all the different rooms
-        PrintWriter out = response.getWriter();
-        out.println("{\"rooms\": " + jsonArray.toString() + "}");
     }
+
+    //Make a jsonArray that will contain the roomIDs
+    JSONArray jsonArray = new JSONArray();
+    //Add all the roomIDs from the room HashSet to the JsonArray
+    for (String room : rooms) {
+        jsonArray.put(room);
+    }
+    // Send the JSON array as the response's content
+    //The Response contains the RoomCodes which all the clients can access
+    //and use to access all the different rooms
+    PrintWriter out = response.getWriter();
+    out.println("{\"rooms\": " + jsonArray.toString() + "}");
+}
+
 
     public void destroy() {
     }

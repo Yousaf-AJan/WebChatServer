@@ -2,9 +2,9 @@ let ws;
 
 //Function below gets all the roomCodes from the ChatServlet
 //which all the clients can use to join the different ChatRooms
-function fetchRooms(){
+function fetchRooms(createRoom){
     // calling the ChatServlet to retrieve all room IDs
-    let callURL= "http://localhost:8080/WSChatServer-1.0-SNAPSHOT/chat-servlet";
+    let callURL= `http://localhost:8080/WSChatServer-1.0-SNAPSHOT/chat-servlet?createRoom=${createRoom}`;
     fetch(callURL, {
         method: 'GET',
         headers: {
@@ -12,8 +12,8 @@ function fetchRooms(){
         },
     })
         .then(response => response.json())
-        .then(response => updateRoomList(response.rooms))
-        .catch(error => console.error('Error fetching rooms:', error));
+    .then(response => updateRoomList(response.rooms))
+    .catch(error => console.error('Error fetching rooms:', error));
 }
 
 function enterRoom(code){
@@ -81,3 +81,6 @@ function timestamp() {
     return d.getHours() + ':' + minutes;
 }
 
+function refresh() {
+    fetchRooms(false);
+}
