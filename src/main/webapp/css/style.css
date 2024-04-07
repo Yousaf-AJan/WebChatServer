@@ -90,20 +90,19 @@ button {
     height: 10%;
     margin-top: 2.67%; /* Adjust this value to move the container down */
     position: absolute;
-    top: 60%; /* Adjust this value to move the container down */
-    right:0.3%;
-    width: 100%;
+    top: 60.9%; /* Adjust this value to move the container down */
+    right:33.8%;
+    width: 33.2%;
 }
 input:focus {
     outline: none;
 }
 #input {
-    width: 33.2%;
+    width: 100%;
     border-width: 2px;
     border-color: black;
     margin-top: 1.35%;
     background-color: #cae2ee;
-    border-left: none;
     right: 1%;
 }
 #send-button{
@@ -118,7 +117,7 @@ input:focus {
     background-color: #cae2ee;
 }
 #img-button{
-    height: 10%;
+    height: 30%;
     top:70.2%;
     left:31%;
     margin-left: 2px;
@@ -133,15 +132,16 @@ input:focus {
 
 }
 
-file:focus {
-    outline: none;
+#fileInput:focus {
+
 }
 #fileInput {
     background-color: #cae2ee;
-    border-right: none;
+
     width:100%;
     height:31.25%;
     display: none;
+    border:black;
 }
 
 #bottom-bar {
