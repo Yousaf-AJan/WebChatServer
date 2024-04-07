@@ -194,7 +194,14 @@ input:focus {
     bottom:1%;
     left: 1.9%;
 }
-
+.sidebarline {
+    border-left: 146px solid #000000;
+    height: 8.4%;
+    position: fixed;
+    top:0;
+    bottom:1%;
+    left: 2%;
+}
 /* Chat room button */
 .tooltip {
     position: relative;
@@ -243,10 +250,9 @@ input:focus {
 
 /*About page*/
 #about-butt{
-    top: 3%;
-    position:fixed;
+    top: 10%;
     padding: 0;
-    left:0.2%;
+    right:10%;
 }
 
 #Name {
