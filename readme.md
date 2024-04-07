@@ -1,52 +1,38 @@
-# Assignment 02 - ChatServer
+# Assignment 02 - Web Chat Server (Instructions)
+> Course: CSCI 2020U: Software Systems Development and Integration
 
-## Project Information
-The project is a chatserver which connects clients and allows communications between them in a manually created chat room. This chatserver allows users to create multiple rooms, which they can join and leave, and rejoin, and communicate between eachother. 
-This is an image of our working project.  
+This is the template for your Assignment 02.
 
-<img src="image.png">
+## Overview
+You want to create a web chat server with multiple rooms. This will allow you and your friends to chat privately.
 
+- Check the `Canvas/Assingments/Assignment 02` for more the detailed instructions.
 
-Group Members:  
-Yousaf Jan  
-Sabaoon Mohammad Jamil  
-Yoosuf Mohamed Kamal  
+### WebChatServer - Endpoints
 
-## Improvements
-- We designed a toolbar that has buttons with useful functions.
-- We designed a button that refreshes the chatroom list.
-- We designed our web page so that it has a colour theme (white, blue, black) So that it looks more appealing.
-- We designed a button that give the user an alternative method to send messages(send button).
-- We made the buttons have a hover effect that displays a tooltip of the buttons function.
-- We desingned a feature that shows the user what room they are currently in.
+**Connect to the websocket**
 
-## How to run
-[1] CLone the repository.  
-[2] Edit Glass Fish Configurations.  
-    - Select Local Glass Fish server.  
-    - Set URL to match image below.  
-    - Set Domain to domain1  
-    - Set JRE to 20.0.2  
-    <img src="image1.png">  
-    - Under Deployment add artifact: WSChatServer:war exploded.  
-    - Select ok to make changes.  
-    <img src="image2.png">  
-[3] Run your Glass Fish server.  
-[4] Open two index.html files in a browser and in one tab create a room and enter a user name, and in the other tab click on the refesh button so the chat room list updates.  On the second tab join the room put in username and have a splendid conversation with yourself.
-
-### Possible run error fixes
-- If artifact: WSChatServer:war exploded does not exist right click on your pom.xml file and click on add as amaven project.  
-<img src="image3.png">  
-if your pom.xml file is added as a maven project the file will appear as a blue m.  
-After that add the artifact spamDetector:war exploded.
-
-## Resources  
-- [W3schools](https://www.w3schools.com/)  
-- [Websocket](https://jckjaer.dk/2017/06/07/java-websocket-server-in-intellij-idea/)  
-- [Jet Brains](https://www.jetbrains.com/)
+From the `ChatServer` class. This will create a new client connect to the web server. The server and client communicate using `json` messages.
+- `ws://localhost:8080/WSChatServer-1.0-SNAPSHOT/ws/{roomID}`
 
 
-## Contributions  
-Yousaf Jan  (33.3%)
-Sabaoon Mohammad Jamil  (33.3%)
-Yoosuf Mohamed Kamal  (33.3%)
+**GET a new (unique) room code**
+
+From the `ChatServlet` class. This will return a `text/plain` content type.
+- `http://localhost:8080/WSChatServer-1.0-SNAPSHOT/chat-servlet`
+See a sample of the response data:
+```
+1B9FN
+```
+
+### WebChatServer - client
+
+Your client is in the `webapp` folder, when started the application will run at `http://localhost:8080/WSChatServer-1.0-SNAPSHOT/`; which will load the `index.html` file.
+
+Your client-side code will be in the `js/main.js` javascript file.
+
+> Obs. Feel free to create other helper classes as you see fit.
+> 
+
+
+

@@ -32,7 +32,7 @@ button {
     width: fit-content;
     top:50px;
     margin-left: 2px;
-    position: fixed;
+    position: absolute;
     border-radius:50%;
 }
 #room-btn{
@@ -49,13 +49,13 @@ button {
     height: 10vh;
     margin-top: 40px;
     width: fit-content;
-    top:15px;
+    top:1px;
     margin-left: 2px;
-    position: fixed;
+    position: absolute;
     /*border-radius:50%;*/
 }
 #refresh-btn{
-   /* border-radius:50%;*/
+    /* border-radius:50%;*/
     padding:0;
     height:25px;
     width:25px;
@@ -163,7 +163,7 @@ input:focus {
 
 .sidebar {
     height: 100%;
-    width: 175px;
+    width: 200px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -189,18 +189,18 @@ input:focus {
 .topbarline {
     border-left: 3px solid #000000;
     height: 100%;
-    position: fixed;
+    position: absolute;
     top:0;
     bottom:1%;
-    left: 1.9%;
+    left: 14.5%;
 }
 .sidebarline {
-    border-left: 146px solid #000000;
-    height: 8.4%;
-    position: fixed;
+    border-left: 175px solid #000000;
+    height: 7.8%;
+    position: absolute;
     top:0;
     bottom:1%;
-    left: 2%;
+    left: 14.5%;
 }
 /* Chat room button */
 .tooltip {
@@ -229,7 +229,7 @@ input:focus {
     margin-top: -5px;
     border-width: 5px;
     border-style: solid;
-   border-color: transparent black transparent transparent;
+    border-color: transparent black transparent transparent;
 }
 .tooltip:hover .tooltiptext {
     visibility: visible;
@@ -254,6 +254,33 @@ input:focus {
     padding: 0;
     right:10%;
 }
+
+.sidebar .closebutt {
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    font-size: 36px;
+    margin-left: 50px;
+    padding: 1px 5px;
+}
+
+.openbutt {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(4, 127, 190);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    position: fixed;
+    top: 70px;
+}
+.closebutt:hover {
+    background-color: rgba(255, 255, 255, 0.56);
+}
+.openbutt:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
 
 #Name {
     margin-top: 5%;
@@ -295,7 +322,3 @@ input:focus {
     display: inline-block;
     border: 2px solid black;
 }
-
-
-
-

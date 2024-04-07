@@ -12,8 +12,8 @@ function fetchRooms(createRoom){
         },
     })
         .then(response => response.json())
-    .then(response => updateRoomList(response.rooms))
-    .catch(error => console.error('Error fetching rooms:', error));
+        .then(response => updateRoomList(response.rooms))
+        .catch(error => console.error('Error fetching rooms:', error));
 }
 
 //This function updates the text to show the current room
@@ -88,4 +88,14 @@ function timestamp() {
 
 function refresh() {
     fetchRooms(false);
+}
+
+function openNav() {
+    document.getElementById("mySidebar").style.width = "200px";
+    document.getElementById("main").style.marginLeft = "200px";
+}
+
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
 }
