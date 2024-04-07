@@ -92,7 +92,7 @@ button {
     position: absolute;
     top: 60.9%; /* Adjust this value to move the container down */
     right:33.8%;
-    width: 33.2%;
+    width: 35%;
 }
 input:focus {
     outline: none;
@@ -116,33 +116,9 @@ input:focus {
 #send-btn{
     background-color: #cae2ee;
 }
-#img-button{
-    height: 30%;
-    top:70.2%;
-    left:31%;
-    margin-left: 2px;
-    position: fixed;
-    border-color: black;
-}
-#img-btn{
-    background-color: #cae2ee;
-    border-right: none;
-    width:100%;
-    height:31.25%;
 
-}
 
-#fileInput:focus {
 
-}
-#fileInput {
-    background-color: #cae2ee;
-
-    width:100%;
-    height:31.25%;
-    display: none;
-    border:black;
-}
 
 #bottom-bar {
     width: 100%;
