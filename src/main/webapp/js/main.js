@@ -37,9 +37,6 @@ function enterRoom(code) {
     // Update the current room text
     updateCurrentRoom(code);
 
-    // Use event Listener to check if button is pressed and then sendMessage
-    document.getElementById("send-btn").addEventListener("click", sendMessage);
-
     // Use event Listener to check if "Enter" is pressed and then sendMessage
     document.getElementById("input").addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
