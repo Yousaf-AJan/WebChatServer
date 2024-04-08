@@ -7,7 +7,7 @@ This is an image of our working project.
 <img src="ChatServer.png">
 
 ## Video of Project running
-<
+![Project Running Video](ProjectVid.mp4)
 
 Group Members:  
 Yousaf Jan  
