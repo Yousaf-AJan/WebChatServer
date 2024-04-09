@@ -34,12 +34,15 @@ public class ChatServlet extends HttpServlet {
     }
 
 public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Add CORS headers
+    //Add CORS headers
     response.setHeader("Access-Control-Allow-Origin", "http://localhost:63342");
     response.setHeader("Access-Control-Allow-Methods", "GET, POST");
 
+    //Get the boolean that is passed in the PathParam
     boolean createNewRoom = Boolean.parseBoolean(request.getParameter("createRoom"));
 
+    //Use that boolean to decide whether the request is for another room
+    //or to get the existing rooms for the other clients
     if (createNewRoom) {
         //Get the random roomID using the generatingRandomUpperAlphanumericString
         String roomID = generatingRandomUpperAlphanumericString(5);

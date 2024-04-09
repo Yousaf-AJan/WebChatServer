@@ -51,7 +51,6 @@
   <div class="topbarline"></div>
 </div>
 
-
 <div id="main">
   <button class="openbutt" onclick="openNav()">☰</button>
   <div id="dash-bar">
@@ -63,18 +62,19 @@
   </div>
 </div>
 
+<!--Create the log which displays the messages-->
 <div id="log-container">
   <textarea title="Chat Log" id="log" readonly></textarea>
 </div>
+<!--Create the send button which sends the message-->
 <div id="send-button">
   <button id = "send-btn" onclick = sendMessage()><image src="img/SendPlane.png" width = "14" length = "14" alt="Send"> </image></button>
 </div>
+<!--Create the input where user types in the message-->
 <div id="input-container">
   <input title="Chat Input" id="input" type="text" placeholder="Type Something Here..."/>
-
-
 </div>
-
+<!--Displays the room which the client is currently in-->
 <div id="CurrentRoom">
 </div>
 
